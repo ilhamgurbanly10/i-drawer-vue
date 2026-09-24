@@ -1,0 +1,118 @@
+.i-drawer-container {
+
+    * {
+        box-sizing: border-box;
+    }
+
+    @media screen and (min-width: 1024px) {
+        &.i-drawer-hide-on-desktop {
+            display: none;
+        }
+    }
+
+    box-sizing: border-box;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+    overflow: hidden;
+    transition: all .5s;
+
+    &.i-drawer-show {
+        width: auto;
+        height: auto;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &.i-drawer-mask {
+        width: 100dvw;
+        height: 100dvh;
+        position: fixed;
+        inset: 0;
+    }
+
+    .i-drawer-content {
+
+        position: fixed;
+        transition: left .5s, right .5s, top .5s, bottom .5s;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+
+        &.i-drawer-right,
+        &.i-drawer-left {
+            top: 0;
+            bottom: 0;
+        }
+
+        &.i-drawer-right {
+            right: -100%;
+
+            &.i-drawer-content-show {
+                right: 0;
+            }
+        }
+
+        &.i-drawer-left {
+            left: -100%;
+
+            &.i-drawer-content-show {
+                left: 0;
+            }
+        }
+
+        &.i-drawer-top,
+        &.i-drawer-bottom {
+            left: 0;
+            right: 0;
+        }
+
+        &.i-drawer-top {
+            top: -100%;
+
+            &.i-drawer-content-show {
+                top: 0;
+            }
+        }
+
+        &.i-drawer-bottom {
+            bottom: -100%;
+
+            &.i-drawer-content-show {
+                bottom: 0;
+            }
+        }
+
+        .i-drawer-footer {
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .i-drawer-close {
+            position: absolute;
+            display: flex;
+            background: none;
+            border: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 1;
+            transition: transform .3s, opacity .3s;
+            transform: scale(1);
+
+            &:not(.i-drawer-close-disabled):hover {
+                opacity: 0.6;
+                transform: scale(1.2);
+            }
+
+            &.i-drawer-close-disabled {
+                cursor: not-allowed;
+                opacity: .3 !important;
+            }
+        }
+    }
+
+}
