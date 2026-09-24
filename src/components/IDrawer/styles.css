@@ -1,7 +1,10 @@
 .i-drawer-container {
 
+    --animationTime: .5s;
+
     * {
         box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent !important;
     }
 
     @media screen and (min-width: 1024px) {
@@ -17,7 +20,7 @@
     visibility: hidden;
     z-index: -1;
     overflow: hidden;
-    transition: all .5s;
+    transition: all var(--animationTime);
 
     &.i-drawer-show {
         width: auto;
@@ -36,7 +39,7 @@
     .i-drawer-content {
 
         position: fixed;
-        transition: left .5s, right .5s, top .5s, bottom .5s;
+        transition: left var(--animationTime), right var(--animationTime), top var(--animationTime), bottom var(--animationTime);
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;

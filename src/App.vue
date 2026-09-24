@@ -4,14 +4,15 @@ import IDrawer, { type IDrawerOptions } from './components/IDrawer';
 const show = ref<boolean>(false);
 const options = reactive<IDrawerOptions>({
   closeableMask: true, 
-  mask: true,
+  mask: false,
   contentColor: 'white',
   placement: 'right', 
   renderOnShow: false,
   size: '300px', 
   maxSize: '50%',
   maskColor: 'rgba(0, 0, 0, .5)', 
-  hideOnDesktop: false
+  hideOnDesktop: false, 
+  resizable: true
 })
 
 </script>

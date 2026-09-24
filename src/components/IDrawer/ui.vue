@@ -3,6 +3,12 @@ import type { Props, Emits, Options } from './types';
 import useModel from './model';
 import { computed } from 'vue';
 import { initialOptions } from './data';
+import { defineAsyncComponent } from 'vue'
+
+const IResizeArea = defineAsyncComponent(() =>
+  import('./components/IResizeArea')
+);
+
 const {
     show,
     options = {}
@@ -27,7 +33,7 @@ const {
         :class="{ 'i-drawer-mask': allOptions.mask, 'i-drawer-show': show, 'i-drawer-hide-on-desktop': allOptions.hideOnDesktop }"
         :style="{ backgroundColor: allOptions.maskColor, zIndex: allOptions.zIndex }">
 
-        <div @click.stop class="i-drawer-content" :class="{
+        <div @click.stop aria-modal="true" class="i-drawer-content" :class="{
             'i-drawer-right': placementPos.isRight,
             'i-drawer-left': placementPos.isLeft,
             'i-drawer-top': placementPos.isTop,
@@ -42,6 +48,8 @@ const {
             maxHeight: placementPos.isX ? '100dvh' : allOptions.maxSize,
             padding: `${allOptions.padding}px`
         }">
+
+        <IResizeArea :pos="placementPos" v-if="allOptions.resizable" />
 
             <button v-if="allOptions.showCloseBtn" :class="{ 'i-drawer-close-disabled': !allOptions.closeableCloseBtn }"
                 class="i-drawer-close" aria-label="Close" type="button"
