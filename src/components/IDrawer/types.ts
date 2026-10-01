@@ -9,7 +9,8 @@ export interface Options {
     center?: boolean;
     closeOnEsc?: boolean;
     size?: string;
-    maxSize?: string;
+    maxSize?: string | null;
+    minSize?: string | null;
     maskColor?: string;
     contentColor?: string;
     closeableMask?: boolean;
@@ -21,6 +22,8 @@ export interface Options {
     hideOnDesktop?: boolean;
 }
 
+export type AllOptions = Required<Options>;
+
 export interface Props {
     options?: Options;
     show: boolean;
@@ -28,6 +31,9 @@ export interface Props {
 
 export type Emits = {
     onClose: [];
+    onResize: [size: number];
+    onResizeStart: [];
+    onResizeEnd: [];
 };
 
 export interface ModelReturn {
@@ -37,10 +43,12 @@ export interface ModelReturn {
     headerWidth: ComputedRef<string>;
     bodyWidth: ComputedRef<string>;
     slotsCheck: ComputedRef<SlotsCheck>;
+    allOptions: ComputedRef<AllOptions>;
+    controlledSize: ComputedRef<boolean>;
 }
 
 export interface ModelProps {
-    options: ComputedRef<Required<Options>>;
+    options: Options;
     emits: EmitFn<Emits>;
 }
 
@@ -51,6 +59,7 @@ export interface PlacementPos {
     isBottom: boolean;
     isY: boolean;
     isX: boolean;
+    property: 'width' | 'height';
 }
 
 export interface SlotsCheck {
