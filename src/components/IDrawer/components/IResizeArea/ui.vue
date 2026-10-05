@@ -19,7 +19,7 @@ const {
 
 // 4) Her bir halda bayira funksiya emit et - OK
 
-// 5) Yeniden acilanda placement deyiserse, cunki size silinmir, destroy olmur baglananda - 
+// 5) Yeniden acilanda placement deyiserse, cunki size silinmir, destroy olmur baglananda - OK
 
 // 6) View transition - OK
 

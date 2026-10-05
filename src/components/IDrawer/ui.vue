@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import type { Props, Emits, Options } from './types';
+import type { Props, Emits } from './types';
 import useModel from './model';
-import { computed, onMounted, ref, useTemplateRef, watch, watchEffect } from 'vue';
-import { initialOptions, defaultSize } from './data';
+import { ref } from 'vue';
+import { defaultSize } from './data';
 import { defineAsyncComponent } from 'vue'
 import CloseIcon from "./components/CloseIcon";
 import { getSizeInPixels, toPxString } from './utils/size';

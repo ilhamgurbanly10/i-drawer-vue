@@ -1,4 +1,4 @@
-import { computed, onMounted, onUnmounted, useSlots, type ComputedRef } from "vue";
+import { computed, onMounted, onUnmounted, useSlots } from "vue";
 import type { ModelReturn, ModelProps, PlacementPos, SlotsCheck, AllOptions } from "./types";
 import { getPlacement } from "./utils/placement";
 import { initialOptions } from "./data";
