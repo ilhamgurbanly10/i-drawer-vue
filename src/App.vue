@@ -7,7 +7,7 @@ const options = reactive<IDrawerOptions>({
   closeableMask: true, 
   mask: true,
   contentColor: 'white',
-  placement: 'right', 
+  placement: 'bottom', 
   renderOnShow: false,
   // size: '60%', 
   maxSize: '80%',
@@ -17,10 +17,14 @@ const options = reactive<IDrawerOptions>({
   resizable: true
 })
 
+const showDrawer = (): void => {
+  show.value = true
+}
+
 </script>
 
 <template>
-  <button @click="show = true">Show</button>
+  <button @click="showDrawer()">Show</button>
   <IDrawer 
   :show="show" :options="options" @on-close="show = false"
    @on-resize="(data) => { options.size = `${data}px`; console.log('actual-size', data)}"

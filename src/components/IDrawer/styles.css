@@ -2,6 +2,17 @@
 
     --animationTime: .5s;
 
+    &.i-drawer-enter-active,
+    &.i-drawer-leave-active {
+        opacity: 1;
+        transition: opacity var(--animationTime) ease;
+    }
+
+    &.i-drawer-enter-from,
+    &.i-drawer-leave-to {
+        opacity: 0;
+    }
+
     * {
         box-sizing: border-box;
         -webkit-tap-highlight-color: transparent !important;
@@ -16,16 +27,27 @@
     box-sizing: border-box;
     width: 0;
     height: 0;
-    opacity: 0;
     visibility: hidden;
     z-index: -1;
     overflow: hidden;
-    transition: all var(--animationTime);
+
+    &:not(.i-drawer-enter-active, .i-drawer-leave-active) {
+        transition: width 0s ease var(--animationTime),
+            height 0s ease var(--animationTime),
+            visibility 0s ease var(--animationTime),
+            opacity var(--animationTime) ease;
+        opacity: 0;
+    }
 
     &.i-drawer-show {
         width: auto;
         height: auto;
         visibility: visible;
+
+    }
+
+    &.i-drawer-show:not(.i-drawer-enter-active, .i-drawer-leave-active) {
+        transition: opacity var(--animationTime) ease;
         opacity: 1;
     }
 
@@ -52,42 +74,10 @@
             bottom: 0;
         }
 
-        &.i-drawer-right {
-            right: -100%;
-
-            &.i-drawer-content-show {
-                right: 0;
-            }
-        }
-
-        &.i-drawer-left {
-            left: -100%;
-
-            &.i-drawer-content-show {
-                left: 0;
-            }
-        }
-
         &.i-drawer-top,
         &.i-drawer-bottom {
             left: 0;
             right: 0;
-        }
-
-        &.i-drawer-top {
-            top: -100%;
-
-            &.i-drawer-content-show {
-                top: 0;
-            }
-        }
-
-        &.i-drawer-bottom {
-            bottom: -100%;
-
-            &.i-drawer-content-show {
-                bottom: 0;
-            }
         }
 
         .i-drawer-footer {
@@ -116,6 +106,83 @@
                 cursor: not-allowed;
                 opacity: .3 !important;
             }
+        }
+    }
+
+    &:not(.i-drawer-enter-active, .i-drawer-leave-active) .i-drawer-content {
+
+        &.i-drawer-right {
+            right: -100%;
+
+            &.i-drawer-content-show {
+                right: 0;
+            }
+        }
+
+        &.i-drawer-left {
+            left: -100%;
+
+            &.i-drawer-content-show {
+                left: 0;
+            }
+        }
+
+        &.i-drawer-top {
+            top: -100%;
+
+            &.i-drawer-content-show {
+                top: 0;
+            }
+        }
+
+        &.i-drawer-bottom {
+            bottom: -100%;
+
+            &.i-drawer-content-show {
+                bottom: 0;
+            }
+        }
+
+    }
+
+    &.i-drawer-enter-active .i-drawer-content, 
+    &.i-drawer-leave-active .i-drawer-content {
+
+         &.i-drawer-right {
+            right: 0;
+        }
+
+        &.i-drawer-left {
+            left: 0;
+        }
+
+        &.i-drawer-top {
+            top: 0;
+        }
+
+        &.i-drawer-bottom {
+             bottom: 0;
+        }
+
+    }
+
+    &.i-drawer-enter-from .i-drawer-content, 
+    &.i-drawer-leave-to .i-drawer-content {
+             
+          &.i-drawer-right {
+            right: -100%;
+        }
+
+        &.i-drawer-left {
+            left: -100%;
+        }
+
+        &.i-drawer-top {
+            top: -100%;
+        }
+
+        &.i-drawer-bottom {
+            bottom: -100%;
         }
     }
 

@@ -21,7 +21,7 @@ const {
 
 // 5) Yeniden acilanda placement deyiserse, cunki size silinmir, destroy olmur baglananda - 
 
-// 6) View transition - 
+// 6) View transition - OK
 
 // 7) Butun kodlari temizle - 
 
@@ -29,7 +29,7 @@ const {
 
 // 9) Tam yoxlama her bir hali - 
 
-// 10) 
+// 10) Telefonda isleyirmi - ...
 
 </script>
 

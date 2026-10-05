@@ -35,10 +35,12 @@ const size = ref<number>(defaultSize);
 </script>
 
 <template>
+    <Transition name="i-drawer">
     <div @click="handleMaskClose()" v-if="allOptions.renderOnShow ? show : true" class="i-drawer-container"
         :class="{ 'i-drawer-mask': allOptions.mask, 'i-drawer-show': show, 'i-drawer-hide-on-desktop': allOptions.hideOnDesktop }"
         :style="{ backgroundColor: allOptions.maskColor, zIndex: allOptions.zIndex }">
 
+        <!-- <Transition> -->
         <div @click.stop aria-modal="true" class="i-drawer-content" :class="{
             'i-drawer-right': placementPos.isRight,
             'i-drawer-left': placementPos.isLeft,
@@ -78,8 +80,10 @@ const size = ref<number>(defaultSize);
                 <slot name="footer" />
             </div>
         </div>
+        <!-- </Transition> -->
 
     </div>
+    </Transition>
 </template>
 
 <style scoped>
