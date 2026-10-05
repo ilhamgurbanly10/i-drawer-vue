@@ -11,26 +11,6 @@ const {
     onPointerUp
 } = useModel({emits, size, pos});
 
-// 1) Kodu seliqeye sal model + temiz funksiya - OK
-
-// 2) limit (minSize ile) - OK 
-
-// 3) controlled size olarsa - OK 
-
-// 4) Her bir halda bayira funksiya emit et - OK
-
-// 5) Yeniden acilanda placement deyiserse, cunki size silinmir, destroy olmur baglananda - OK
-
-// 6) View transition - OK
-
-// 7) Butun kodlari temizle - 
-
-// 8) Ardi text faylinda - 
-
-// 9) Tam yoxlama her bir hali - 
-
-// 10) Telefonda isleyirmi - ...
-
 </script>
 
 <template>

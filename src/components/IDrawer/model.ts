@@ -8,23 +8,21 @@ const useModel = ({
     emits
 }: ModelProps): ModelReturn => {
 
-   
     const allOptions = computed<AllOptions>(() => {
-         console.log(options.size, 'opt-changed')
-    return { ...initialOptions, ...options }
-});
+        return { ...initialOptions, ...options }
+    });
 
     // slots
-  const slots = useSlots();
-  
-  const slotsCheck = computed<SlotsCheck>(() => {
-    return {
-      hasHeader: !!slots?.header, 
-      hasBody: !!slots?.body, 
-      hasFooter: !!slots?.footer
-    }
-  })
-  // end-slots
+    const slots = useSlots();
+
+    const slotsCheck = computed<SlotsCheck>(() => {
+        return {
+            hasHeader: !!slots?.header,
+            hasBody: !!slots?.body,
+            hasFooter: !!slots?.footer
+        }
+    })
+    // end-slots
 
     // positions
     const placementPos = computed<PlacementPos>(() => getPlacement(allOptions.value.placement));
@@ -55,11 +53,11 @@ const useModel = ({
     return {
         placementPos,
         handleClosebtnClose,
-        handleMaskClose, 
-        headerWidth, 
-        bodyWidth, 
-        slotsCheck, 
-        allOptions, 
+        handleMaskClose,
+        headerWidth,
+        bodyWidth,
+        slotsCheck,
+        allOptions,
         controlledSize
     }
 
