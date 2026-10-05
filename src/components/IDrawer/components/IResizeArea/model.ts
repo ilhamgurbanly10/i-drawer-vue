@@ -11,6 +11,7 @@ const useModel = ({
 
     // pointer-events
     const onPointerDown = (event: PointerEvent) => {
+        event.preventDefault();
         resizing.value = true;
         emits('onResizeStart');
         (event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
