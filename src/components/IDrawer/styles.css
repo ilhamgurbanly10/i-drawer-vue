@@ -63,7 +63,7 @@
         position: fixed;
         transition: left var(--animationTime), right var(--animationTime), top var(--animationTime), bottom var(--animationTime);
         display: flex;
-        overflow: hidden;
+        overflow: auto;
         align-items: flex-start;
         justify-content: flex-start;
         flex-direction: column;
