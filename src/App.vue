@@ -1,7 +1,9 @@
 <script setup lang="ts">
 
 import { reactive, ref } from 'vue';
-import IDrawer, { type IDrawerOptions } from './components/IDrawer';
+import { IDrawer, type IDrawerOptions } from 'i-drawer-vue';
+import "i-drawer-vue/dist/style.css";
+
 const show = ref<boolean>(false);
 
 const options = reactive<IDrawerOptions>({
@@ -10,13 +12,14 @@ const options = reactive<IDrawerOptions>({
   contentColor: 'white',
   placement: 'top',
   renderOnShow: false,
-  size: '400px',
-  maxSize: '95%',
-  minSize: '10%',
+  // size: '100px',
+  // maxSize: '95%',
+  // minSize: '10%',
   maskColor: 'rgba(0, 0, 0, .5)',
   hideOnDesktop: false,
   resizable: true, 
-  closeOnEsc: true
+  closeOnEsc: true, 
+  padding: 20
 })
 
 interface PlacmenetOption {
@@ -76,7 +79,7 @@ const onPlacementChange = (event: Event): void => {
 
  <div class="sm-top-space">
    <label>
-      <input type="checkbox" name="placement" :checked="options.mask"
+      <input type="checkbox" name="mask" :checked="options.mask"
         @change="options.mask = !options.mask">
       Show mask
   </label>
@@ -84,7 +87,7 @@ const onPlacementChange = (event: Event): void => {
 
  <div class="sm-top-space">
    <label>
-      <input type="checkbox" name="placement" :checked="options.closeableMask"
+      <input type="checkbox" name="closeableMask" :checked="options.closeableMask"
         @change="options.closeableMask = !options.closeableMask">
       Closeable Mask
   </label>
@@ -92,7 +95,7 @@ const onPlacementChange = (event: Event): void => {
 
  <div class="sm-top-space">
    <label>
-      <input type="checkbox" name="placement" :checked="options.closeOnEsc"
+      <input type="checkbox" name="closeOnEsc" :checked="options.closeOnEsc"
         @change="options.closeOnEsc = !options.closeOnEsc">
       Close On Esc
   </label>
@@ -100,7 +103,7 @@ const onPlacementChange = (event: Event): void => {
 
  <div class="sm-top-space">
    <label>
-      <input type="checkbox" name="placement" :checked="options.resizable"
+      <input type="checkbox" name="resizable" :checked="options.resizable"
         @change="options.resizable = !options.resizable">
       Resizable
   </label>
@@ -110,7 +113,7 @@ const onPlacementChange = (event: Event): void => {
 
   <br />
 
-   <a target="_blank" class="btn btn-secondary sm-top-space" href="https://www.npmjs.com/package/i-modal-vue">Visit package on npm</a>
+   <a target="_blank" class="btn btn-secondary sm-top-space" href="https://www.npmjs.com/package/i-drawer-vue">Visit package on npm</a>
 
 
   <IDrawer :show="show" :options="options" @on-close="show = false"
@@ -180,16 +183,16 @@ const onPlacementChange = (event: Event): void => {
              <li><strong>placement: 'top' | 'right' | 'bottom' | 'left' (Optional)</strong> - placement of drawer content, default
             value is 'right'.</li>
              <li><strong>minSize: string | null (Optional)</strong> - minimum size of drawer content, due to placement position 
-              it can be height or width, default value is null.
+              it can be height or width, default value is '10%'.
           </li>
            <li><strong>maxSize: string | null (Optional)</strong> - maximum size of drawer content, due to placement position 
-              it can be height or width, default value is null.
+              it can be height or width, default value is '95%'.
           </li>
            <li><strong>size: string (Optional)</strong> - size of content. Important note here, 
             if you define size manually, then to resize you should use onResize event to change your content 
             size state, otherwise it will not work. If size is not defined it will work fine on resize, so you do not need 
             listen onResize event to resize content. 
-            Default value is '300px'.
+            Default value is '400px'.
           </li>
         </ul>
       </li>
